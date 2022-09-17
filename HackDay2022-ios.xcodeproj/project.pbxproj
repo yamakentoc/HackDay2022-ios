@@ -1,0 +1,518 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		150A058428D381E900916D72 /* ProgressHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150A058328D381E900916D72 /* ProgressHeaderView.swift */; };
+		150A058728D3985300916D72 /* CellPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150A058628D3985300916D72 /* CellPosition.swift */; };
+		150A058928D3988300916D72 /* MeetingInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150A058828D3988300916D72 /* MeetingInfo.swift */; };
+		150A058B28D3A45900916D72 /* PartnerProgressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150A058A28D3A45900916D72 /* PartnerProgressViewModel.swift */; };
+		150A058D28D3A5DF00916D72 /* MeetingInfoRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150A058C28D3A5DF00916D72 /* MeetingInfoRepository.swift */; };
+		150A059028D4388B00916D72 /* Traiangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150A058F28D4388B00916D72 /* Traiangle.swift */; };
+		150A059228D4B89600916D72 /* UserProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150A059128D4B89600916D72 /* UserProgress.swift */; };
+		150A059428D4CCE500916D72 /* UserNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 150A059328D4CCE500916D72 /* UserNameView.swift */; };
+		1512A19A28D4FD3600E3F5DD /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1512A19928D4FD3600E3F5DD /* RootView.swift */; };
+		154EA54D28D5CC82000A364A /* mockMachiawaseInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = 154EA54C28D5CC81000A364A /* mockMachiawaseInfo.json */; };
+		154EA54F28D5CCD0000A364A /* MachiawaseInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154EA54E28D5CCD0000A364A /* MachiawaseInfo.swift */; };
+		156370A028D5039000D1B0C7 /* CreateMeetingSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1563709F28D5039000D1B0C7 /* CreateMeetingSchedule.swift */; };
+		156370A228D50E0E00D1B0C7 /* CustomModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156370A128D50E0E00D1B0C7 /* CustomModifier.swift */; };
+		156370A428D519DC00D1B0C7 /* ScheduleLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156370A328D519DC00D1B0C7 /* ScheduleLabelStyle.swift */; };
+		15771A9528CFA30300889B84 /* MyProgressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15771A9428CFA30300889B84 /* MyProgressViewModel.swift */; };
+		15771A9A28CFA4F600889B84 /* MoveInfoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15771A9928CFA4F600889B84 /* MoveInfoResponse.swift */; };
+		1583979C28D218480055CBCA /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1583979B28D218480055CBCA /* Task.swift */; };
+		1583979E28D2237F0055CBCA /* ProgressRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1583979D28D2237F0055CBCA /* ProgressRepository.swift */; };
+		15BE319C28CDC75400669853 /* HackDay2022_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BE319B28CDC75400669853 /* HackDay2022_iosApp.swift */; };
+		15BE319E28CDC75400669853 /* MyProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BE319D28CDC75400669853 /* MyProgressView.swift */; };
+		15BE31A028CDC75500669853 /* ImageAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15BE319F28CDC75500669853 /* ImageAssets.xcassets */; };
+		15BE31A328CDC75500669853 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15BE31A228CDC75500669853 /* Preview Assets.xcassets */; };
+		15BE31AF28CDD97D00669853 /* ikamodoki.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 15BE31AE28CDD97D00669853 /* ikamodoki.ttf */; };
+		15BE31B228CDE18600669853 /* FontExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15BE31B128CDE18600669853 /* FontExtensions.swift */; };
+		15FC78F328D0CC9900297BBF /* ProgressTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FC78F228D0CC9900297BBF /* ProgressTabView.swift */; };
+		15FC78F528D0CF1000297BBF /* PartnerProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FC78F428D0CF1000297BBF /* PartnerProgressView.swift */; };
+		15FC78F928D0D84300297BBF /* ColorAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15FC78F828D0D84300297BBF /* ColorAssets.xcassets */; };
+		15FC78FB28D0D92600297BBF /* ColorAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FC78FA28D0D92600297BBF /* ColorAssets.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		150A058328D381E900916D72 /* ProgressHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressHeaderView.swift; sourceTree = "<group>"; };
+		150A058628D3985300916D72 /* CellPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellPosition.swift; sourceTree = "<group>"; };
+		150A058828D3988300916D72 /* MeetingInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingInfo.swift; sourceTree = "<group>"; };
+		150A058A28D3A45900916D72 /* PartnerProgressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerProgressViewModel.swift; sourceTree = "<group>"; };
+		150A058C28D3A5DF00916D72 /* MeetingInfoRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingInfoRepository.swift; sourceTree = "<group>"; };
+		150A058F28D4388B00916D72 /* Traiangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Traiangle.swift; sourceTree = "<group>"; };
+		150A059128D4B89600916D72 /* UserProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProgress.swift; sourceTree = "<group>"; };
+		150A059328D4CCE500916D72 /* UserNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNameView.swift; sourceTree = "<group>"; };
+		1512A19928D4FD3600E3F5DD /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		154EA54C28D5CC81000A364A /* mockMachiawaseInfo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = mockMachiawaseInfo.json; sourceTree = "<group>"; };
+		154EA54E28D5CCD0000A364A /* MachiawaseInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachiawaseInfo.swift; sourceTree = "<group>"; };
+		1563709F28D5039000D1B0C7 /* CreateMeetingSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateMeetingSchedule.swift; sourceTree = "<group>"; };
+		156370A128D50E0E00D1B0C7 /* CustomModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomModifier.swift; sourceTree = "<group>"; };
+		156370A328D519DC00D1B0C7 /* ScheduleLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleLabelStyle.swift; sourceTree = "<group>"; };
+		15771A9428CFA30300889B84 /* MyProgressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProgressViewModel.swift; sourceTree = "<group>"; };
+		15771A9928CFA4F600889B84 /* MoveInfoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveInfoResponse.swift; sourceTree = "<group>"; };
+		1583979B28D218480055CBCA /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		1583979D28D2237F0055CBCA /* ProgressRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRepository.swift; sourceTree = "<group>"; };
+		15BE319828CDC75400669853 /* HackDay2022-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HackDay2022-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		15BE319B28CDC75400669853 /* HackDay2022_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HackDay2022_iosApp.swift; sourceTree = "<group>"; };
+		15BE319D28CDC75400669853 /* MyProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProgressView.swift; sourceTree = "<group>"; };
+		15BE319F28CDC75500669853 /* ImageAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ImageAssets.xcassets; sourceTree = "<group>"; };
+		15BE31A228CDC75500669853 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		15BE31AB28CDCF9B00669853 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		15BE31AE28CDD97D00669853 /* ikamodoki.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ikamodoki.ttf; sourceTree = "<group>"; };
+		15BE31B128CDE18600669853 /* FontExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontExtensions.swift; sourceTree = "<group>"; };
+		15FC78F228D0CC9900297BBF /* ProgressTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTabView.swift; sourceTree = "<group>"; };
+		15FC78F428D0CF1000297BBF /* PartnerProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartnerProgressView.swift; sourceTree = "<group>"; };
+		15FC78F828D0D84300297BBF /* ColorAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = ColorAssets.xcassets; sourceTree = "<group>"; };
+		15FC78FA28D0D92600297BBF /* ColorAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAssets.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		15BE319528CDC75400669853 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		150A058228D381B000916D72 /* ProgressView */ = {
+			isa = PBXGroup;
+			children = (
+				15BE319D28CDC75400669853 /* MyProgressView.swift */,
+				15FC78F428D0CF1000297BBF /* PartnerProgressView.swift */,
+				150A058328D381E900916D72 /* ProgressHeaderView.swift */,
+			);
+			path = ProgressView;
+			sourceTree = "<group>";
+		};
+		150A058E28D4386900916D72 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				150A058F28D4388B00916D72 /* Traiangle.swift */,
+				150A059328D4CCE500916D72 /* UserNameView.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		154EA54B28D5CC79000A364A /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				154EA54C28D5CC81000A364A /* mockMachiawaseInfo.json */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		15771A9628CFA40A00889B84 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				15771A9928CFA4F600889B84 /* MoveInfoResponse.swift */,
+				1583979B28D218480055CBCA /* Task.swift */,
+				150A058828D3988300916D72 /* MeetingInfo.swift */,
+				150A059128D4B89600916D72 /* UserProgress.swift */,
+				150A058628D3985300916D72 /* CellPosition.swift */,
+				154EA54B28D5CC79000A364A /* Resource */,
+				154EA54E28D5CCD0000A364A /* MachiawaseInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		15771A9728CFA41000889B84 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				15771A9428CFA30300889B84 /* MyProgressViewModel.swift */,
+				150A058A28D3A45900916D72 /* PartnerProgressViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		15771A9828CFA41E00889B84 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				150A058E28D4386900916D72 /* Common */,
+				150A058228D381B000916D72 /* ProgressView */,
+				15FC78F228D0CC9900297BBF /* ProgressTabView.swift */,
+				1512A19928D4FD3600E3F5DD /* RootView.swift */,
+				1563709F28D5039000D1B0C7 /* CreateMeetingSchedule.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1583979F28D2279B0055CBCA /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				1583979D28D2237F0055CBCA /* ProgressRepository.swift */,
+				150A058C28D3A5DF00916D72 /* MeetingInfoRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		15BE318F28CDC75400669853 = {
+			isa = PBXGroup;
+			children = (
+				15BE319A28CDC75400669853 /* HackDay2022-ios */,
+				15BE319928CDC75400669853 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		15BE319928CDC75400669853 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				15BE319828CDC75400669853 /* HackDay2022-ios.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		15BE319A28CDC75400669853 /* HackDay2022-ios */ = {
+			isa = PBXGroup;
+			children = (
+				15BE31AB28CDCF9B00669853 /* Info.plist */,
+				15BE319B28CDC75400669853 /* HackDay2022_iosApp.swift */,
+				15771A9828CFA41E00889B84 /* View */,
+				15771A9728CFA41000889B84 /* ViewModel */,
+				1583979F28D2279B0055CBCA /* Repository */,
+				15771A9628CFA40A00889B84 /* Model */,
+				15BE31B028CDE14800669853 /* Utility */,
+				15BE31AE28CDD97D00669853 /* ikamodoki.ttf */,
+				15FC78F728D0D80A00297BBF /* Assets */,
+				15BE31A128CDC75500669853 /* Preview Content */,
+			);
+			path = "HackDay2022-ios";
+			sourceTree = "<group>";
+		};
+		15BE31A128CDC75500669853 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				15BE31A228CDC75500669853 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		15BE31B028CDE14800669853 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				15BE31B128CDE18600669853 /* FontExtensions.swift */,
+				156370A128D50E0E00D1B0C7 /* CustomModifier.swift */,
+				156370A328D519DC00D1B0C7 /* ScheduleLabelStyle.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		15FC78F728D0D80A00297BBF /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				15BE319F28CDC75500669853 /* ImageAssets.xcassets */,
+				15FC78F828D0D84300297BBF /* ColorAssets.xcassets */,
+				15FC78FA28D0D92600297BBF /* ColorAssets.swift */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		15BE319728CDC75400669853 /* HackDay2022-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15BE31A628CDC75500669853 /* Build configuration list for PBXNativeTarget "HackDay2022-ios" */;
+			buildPhases = (
+				15BE319428CDC75400669853 /* Sources */,
+				15BE319528CDC75400669853 /* Frameworks */,
+				15BE319628CDC75400669853 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "HackDay2022-ios";
+			productName = "HackDay2022-ios";
+			productReference = 15BE319828CDC75400669853 /* HackDay2022-ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		15BE319028CDC75400669853 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					15BE319728CDC75400669853 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = 15BE319328CDC75400669853 /* Build configuration list for PBXProject "HackDay2022-ios" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 15BE318F28CDC75400669853;
+			productRefGroup = 15BE319928CDC75400669853 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				15BE319728CDC75400669853 /* HackDay2022-ios */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		15BE319628CDC75400669853 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15BE31AF28CDD97D00669853 /* ikamodoki.ttf in Resources */,
+				15BE31A328CDC75500669853 /* Preview Assets.xcassets in Resources */,
+				15FC78F928D0D84300297BBF /* ColorAssets.xcassets in Resources */,
+				15BE31A028CDC75500669853 /* ImageAssets.xcassets in Resources */,
+				154EA54D28D5CC82000A364A /* mockMachiawaseInfo.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		15BE319428CDC75400669853 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				150A059428D4CCE500916D72 /* UserNameView.swift in Sources */,
+				150A059028D4388B00916D72 /* Traiangle.swift in Sources */,
+				150A058B28D3A45900916D72 /* PartnerProgressViewModel.swift in Sources */,
+				15771A9A28CFA4F600889B84 /* MoveInfoResponse.swift in Sources */,
+				15BE319E28CDC75400669853 /* MyProgressView.swift in Sources */,
+				150A058928D3988300916D72 /* MeetingInfo.swift in Sources */,
+				150A058728D3985300916D72 /* CellPosition.swift in Sources */,
+				15BE319C28CDC75400669853 /* HackDay2022_iosApp.swift in Sources */,
+				156370A228D50E0E00D1B0C7 /* CustomModifier.swift in Sources */,
+				156370A428D519DC00D1B0C7 /* ScheduleLabelStyle.swift in Sources */,
+				15771A9528CFA30300889B84 /* MyProgressViewModel.swift in Sources */,
+				1583979E28D2237F0055CBCA /* ProgressRepository.swift in Sources */,
+				15FC78F528D0CF1000297BBF /* PartnerProgressView.swift in Sources */,
+				154EA54F28D5CCD0000A364A /* MachiawaseInfo.swift in Sources */,
+				15FC78F328D0CC9900297BBF /* ProgressTabView.swift in Sources */,
+				1512A19A28D4FD3600E3F5DD /* RootView.swift in Sources */,
+				150A058D28D3A5DF00916D72 /* MeetingInfoRepository.swift in Sources */,
+				15FC78FB28D0D92600297BBF /* ColorAssets.swift in Sources */,
+				1583979C28D218480055CBCA /* Task.swift in Sources */,
+				156370A028D5039000D1B0C7 /* CreateMeetingSchedule.swift in Sources */,
+				150A059228D4B89600916D72 /* UserProgress.swift in Sources */,
+				150A058428D381E900916D72 /* ProgressHeaderView.swift in Sources */,
+				15BE31B228CDE18600669853 /* FontExtensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		15BE31A428CDC75500669853 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		15BE31A528CDC75500669853 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		15BE31A728CDC75500669853 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HackDay2022-ios/Preview Content\"";
+				DEVELOPMENT_TEAM = 65VW7XZNV5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HackDay2022-ios/Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Lgiht;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yamakentoc.HackDay2022-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		15BE31A828CDC75500669853 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"HackDay2022-ios/Preview Content\"";
+				DEVELOPMENT_TEAM = 65VW7XZNV5;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "HackDay2022-ios/Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Lgiht;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yamakentoc.HackDay2022-ios";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		15BE319328CDC75400669853 /* Build configuration list for PBXProject "HackDay2022-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15BE31A428CDC75500669853 /* Debug */,
+				15BE31A528CDC75500669853 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		15BE31A628CDC75500669853 /* Build configuration list for PBXNativeTarget "HackDay2022-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15BE31A728CDC75500669853 /* Debug */,
+				15BE31A828CDC75500669853 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 15BE319028CDC75400669853 /* Project object */;
+}
