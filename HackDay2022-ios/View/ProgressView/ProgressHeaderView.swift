@@ -9,7 +9,26 @@ import SwiftUI
 
 // 進捗画面のヘッダー
 struct ProgressHeaderView: View {
-    var meetingInfo: MeetingInfo
+    
+    var viewModel: ProgressViewModel
+    
+    var text: (time: String, address: String) {
+        guard let machiawase = viewModel.machiawaseInfo?.machiawase else { return ("", "") }
+        let dateString = machiawase.appointmentDatetime
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        let localDate = formatter.date(from: dateString + "-09:00")
+
+//        formatter.dateStyle = .none
+//        formatter.timeZone = .short
+        
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss" //2022-09-17T18:42:23
+//        formatter.locale = Locale.init(identifier: "ja_JP")
+//        let date = formatter.date(from: dateString)
+        return ("12:00", machiawase.appointmentAddress)
+    }
     
     var body: some View {
         VStack {
@@ -25,14 +44,15 @@ struct ProgressHeaderView: View {
     
     /// 集合の情報テキスト
     private var meetingInfoText: some View {
+
         HStack {
             Image("progress_flag")
-            Text(meetingInfo.time)
+            Text(text.time)
                 .font(.title2)
                 .bold() +
             Text(" に ")
                 .font(.caption) +
-            Text(meetingInfo.point)
+            Text(text.address)
                 .font(.title2)
                 .bold() +
             Text(" に")
@@ -49,6 +69,12 @@ struct ProgressHeaderView: View {
         }
     }
     
+    private func mainText(_ text: String) -> some View {
+        Text(text)
+            .font(.title2)
+            .bold()
+    }
+    
     private var headerBottomImage: some View {
         Image("progress_header")
             .resizable()
@@ -58,13 +84,8 @@ struct ProgressHeaderView: View {
 }
 
 struct ProgressHeaderView_Previews: PreviewProvider {
-    static var meetingInfo = MeetingInfo(time: "10:00",
-                                         point: "渋谷駅",
-                                         transportation: "車で40分",
-                                         member: "やまけん じーこ",
-                                         prepareMySet: "メイクテキトーの日")
     static var previews: some View {
-        ProgressHeaderView(meetingInfo: meetingInfo)
+        ProgressHeaderView(viewModel: ProgressViewModel())
             .previewLayout(.fixed(width: 400, height: 140))
     }
 }

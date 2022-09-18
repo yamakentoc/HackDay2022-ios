@@ -9,17 +9,17 @@ import SwiftUI
 
 /// 自分の進捗画面
 struct MyProgressView: View {
-    @StateObject var viewModel: MyProgressViewModel
-    
+    @EnvironmentObject var viewModel: ProgressViewModel
+
     var body: some View {
         VStack(spacing: 0) {
             ScrollView {
                 LazyVStack(spacing: 0) {
-                    ProgressHeaderView(meetingInfo: viewModel.meetingInfo)
-                    ForEach(Array(viewModel.taskList.enumerated()), id: \.offset) { index, element in
-                        TaskCell(task: element,
-                                 cellPotision: viewModel.getCellPosition(index),
-                                 backgroundColor: index % 2 == 0 ? .backgroundListColor : .backgroundBaseColor)
+                    ProgressHeaderView(viewModel: viewModel)
+                    ForEach(Array(viewModel.eventInfoList.enumerated()), id: \.offset) { index, element in
+                        EventCell(event: element,
+                                  cellPotision: viewModel.getCellPosition(index),
+                                  backgroundColor: index % 2 == 0 ? .backgroundListColor : .backgroundBaseColor)
                     }
                     Spacer()
                 }
@@ -29,7 +29,7 @@ struct MyProgressView: View {
                     Text("家を出るまで")
                         .bold()
                     Text("あと") +
-                    Text("5")
+                    Text(String(viewModel.machiawaseUserMe?.leaveAt ?? 0))
                         .font(.title)
                         .bold()
                         .foregroundColor(.textEarlyColor) +
@@ -38,7 +38,7 @@ struct MyProgressView: View {
                 VStack(spacing: 6) {
                     Text("予定より")
                         .bold()
-                    Text("1 ")
+                    Text(String(viewModel.machiawaseUserMe?.expectedDiff ?? 0))
                         .font(.title)
                         .bold()
                         .foregroundColor(.textEarlyColor) +
@@ -59,10 +59,10 @@ struct MyProgressView: View {
     }
 }
 
-/// タスクを表示するセル
-private struct TaskCell: View {
-    // 表示するタスク
-    var task: Task
+/// イベントを表示するセル
+private struct EventCell: View {
+    // 表示するイベント
+    var event: EventInfo
     // セルの位置
     var cellPotision: CellPosition
     // 背景色
@@ -72,19 +72,19 @@ private struct TaskCell: View {
         HStack(spacing: 16) {
             progressImage
             VStack(alignment: .leading) {
-                Text(task.name)
+                Text(event.name)
                     .font(.headline)
                     .bold()
                 Label(title: {
-                    Text("\(task.time)分")
+                    Text("\(event.time)分")
                 }, icon: {
                     Image(systemName: "timer")
                 })
                 .font(.callout)
             }
-            .opacity(task.progress == .done ? 0.5 : 1)
+            .opacity(event.progress == .done ? 0.5 : 1)
             Spacer()
-            if task.progress == .now {
+            if event.progress == .doing {
                 timer
             }
         }
@@ -92,15 +92,15 @@ private struct TaskCell: View {
         .padding(.horizontal)
         .background(backgroundColor)
     }
-    
+
     /// 進捗画像
     private var progressImage: some View {
-        Image(task.progress.getImageString(cellPotision))
+        Image(event.progress.getImageString(cellPotision))
             .resizable()
             .scaledToFit()
             .frame(height: 70)
     }
-    
+
     /// タイマー
     private var timer: some View {
         HStack(alignment: .bottom, spacing: 0) {
@@ -124,10 +124,10 @@ private struct TaskCell: View {
 }
 
 struct MyProgressView_Previews: PreviewProvider {
-    static var task = Task(name: "ヘアセット", time: "10", progress: .now)
+    static var event = EventInfo(name: "ヘアセット", time: 10, timeLeft: 5, progress: .doing)
     static var previews: some View {
-        MyProgressView(viewModel: MyProgressViewModel())
-        TaskCell(task: task, cellPotision: .center, backgroundColor: .backgroundBaseColor)
+        MyProgressView().environmentObject(ProgressViewModel())
+        EventCell(event: event, cellPotision: .center, backgroundColor: .backgroundBaseColor)
             .previewLayout(.fixed(width: 400, height: 70))
     }
 }

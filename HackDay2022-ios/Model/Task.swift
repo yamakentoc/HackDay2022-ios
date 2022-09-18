@@ -7,35 +7,38 @@
 
 import Foundation
 
-/// タスク
-struct Task: Identifiable {
-    // セル表示用の識別子
+/// イベント
+struct EventInfo: Identifiable {
+    /// セル表示用の識別子
     var id = UUID()
-    // タスク名
+    /// イベント名
     var name: String = ""
-    // タスクの時間
-    var time: String = ""
-    // タスクの進捗
+    /// 所要時間
+    var time: Int
+    /// 残り時間
+    var timeLeft: Int
+    /// タスクの進捗
     var progress: Progress
 
-    // 進捗
-    enum Progress {
+    /// 進捗
+    enum Progress: String {
         // まだしてない
-        case notYet
+        case not_yet = "not_yet"
         // 進行中
-        case now
+        case doing = "doing"
         // 完了
-        case done
+        case done = "done"
 
         /// 進捗とセルの位置に合わせた画像名を取得
         /// - Parameter cellPosition: セルの位置
         /// - Returns: 進捗とセルの位置に合わせた画像名
         func getImageString(_ cellPosition: CellPosition) -> String {
             switch self {
-            case .notYet, .done:
+            case .not_yet, .done:
+                
                 return "my_progress_\(cellPosition.rawValue)"
-            case .now:
-                return "my_progress_\(cellPosition.rawValue)_now"
+            case .doing:
+                return "my_progress_\(cellPosition.rawValue)_doing"
             }
         }
     }

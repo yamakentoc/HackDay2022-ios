@@ -9,25 +9,25 @@ import SwiftUI
 
 /// みんなの様子画面
 struct PartnerProgressView: View {
-    /// みんなの様子画面のViewModel
-    @StateObject var viewModel: PartnerProgressViewModel
-    
+    /// 進捗状況のViewModel
+    @EnvironmentObject var viewModel: ProgressViewModel
+
     var body: some View {
         VStack(spacing: 0) {
-            ProgressHeaderView(meetingInfo: viewModel.meetingInfo)
+            ProgressHeaderView(viewModel: viewModel)
             gauges
             currentProgressView(viewModel.selectedPartnerProgress)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(Color.backgroundBaseColor)
     }
-    
+
     /// 縦型のゲージ
     private var gauges: some View {
         VStack(spacing: 0) {
             Spacer().frame(height: 30)
             HStack(spacing: 100) {
-                ForEach(viewModel.partnerProgessList) { progress in
+                ForEach(viewModel.partnerProgressList) { progress in
                     // カスタムゲージを作成して表示する
                     Gauge(value: 400, in: 0...400) {
                     } currentValueLabel: {}
@@ -44,7 +44,7 @@ struct PartnerProgressView: View {
                 .resizable()
         }
     }
-    
+
     /// 現在の値を示すView
     func currentProgressView(_ progress: PartnerProgress) -> some View {
         VStack(spacing: 0) {
@@ -74,39 +74,39 @@ struct PartnerProgressView: View {
                             }
                             .font(.caption)
                         }
-                        
+
                     }
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                    
+
                 }
         }
     }
-    
-    
+
+
     /// 縦型のゲージスタイル
     private struct CustomGaugeStyle: GaugeStyle {
-        /// みんなの様子画面のViewModel
-        @StateObject var viewModel: PartnerProgressViewModel
+        /// 進捗状況のViewModel
+        @StateObject var viewModel: ProgressViewModel
         /// 相手の進捗状況
         var partnerProgress: PartnerProgress
         /// 最大値
         let maximumValue: Double = 400.0
-        
+
         func makeBody(configuration: Configuration) -> some View {
             ZStack {
                 ProgressView()
             }
         }
-        
+
         /// 最大値用と現在値用のProgressViewを生成する
         /// - Returns: 最大値用と現在値用のProgressView
         private func ProgressView() -> some View {
             ZStack(alignment: .bottom) {
                 ProgressBar(value: maximumValue, isBack: true)
-                ProgressBar(value: partnerProgress.progressRate, isBack: false)
+                ProgressBar(value: partnerProgress.progressRate * maximumValue, isBack: false)
             }
         }
-        
+
         /// 縦型のProgressBarを生成
         /// - Parameters:
         ///   - value: 現在の値
@@ -139,6 +139,6 @@ struct PartnerProgressView: View {
 
 struct ContentView2_Previews: PreviewProvider {
     static var previews: some View {
-        PartnerProgressView(viewModel: PartnerProgressViewModel())
+        PartnerProgressView().environmentObject(ProgressViewModel())
     }
 }

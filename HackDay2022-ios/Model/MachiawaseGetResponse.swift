@@ -1,8 +1,8 @@
 //
-//  MachiawaseInfo.swift
+//  MachiawaseGetResponse.swift
 //  HackDay2022-ios
 //
-//  Created by 山口賢登 on 2022/09/17.
+//  Created by Daiki Kojima on 2022/09/17.
 //
 
 import Foundation
@@ -15,17 +15,18 @@ struct MachiawaseInfo: Codable {
 /// 待ち合わせ
 struct Machiawase: Codable {
     /// ID
-    let id: Int
+    let appointmentActiveFlag: Bool
     /// 行き先
-    let destination: String
+    let appointmentAddress: String
     /// 待ち合わせ時間
-    let machiawaseTime: String
+    let appointmentDatetime: String
     /// 待ち合わせユーザ
     let machiawaseUser: [MachiawaseUser]
 
     enum CodingKeys: String, CodingKey {
-        case id, destination
-        case machiawaseTime = "machiawase_time"
+        case appointmentActiveFlag = "appointment_active_flag"
+        case appointmentAddress = "appointment_address"
+        case appointmentDatetime = "appointment_datetime"
         case machiawaseUser = "machiawase_user"
     }
 }
@@ -40,7 +41,7 @@ struct MachiawaseUser: Codable {
     let expectedDiff: Int
     ///  家を出るまで
     let leaveAt: Int
-    
+
     enum CodingKeys: String, CodingKey {
         case user, events
         case expectedDiff = "expected_diff"
@@ -52,16 +53,16 @@ struct MachiawaseUser: Codable {
 struct Event: Codable {
     /// 支度の内容
     let shitakuItem: ShitakuItem
-    /// 作成した時間
-    let createdAt: String?
     /// 残り時間
     let timeLeft: Int
     /// 完了したか
     let isFinished: Bool
+    /// 進捗
+    let progress: String
 
     enum CodingKeys: String, CodingKey {
+        case progress
         case shitakuItem = "shitaku_item"
-        case createdAt = "created_at"
         case timeLeft = "time_left"
         case isFinished = "is_finished"
     }
@@ -69,16 +70,27 @@ struct Event: Codable {
 
 /// 支度の内容
 struct ShitakuItem: Codable {
-    /// やること
-    let todo: String
-    /// 所要時間
-    let time: Int
+    let beaconId: Int //ハードのボタンのID
+    let shitakuItemId: Int // 支度アイテムのID
+    let shitakuItemName: String // 支度アイテムの名前
+    let shitakuItemTime: Int // 支度にかかる時間
+    enum CodingKeys: String, CodingKey {
+        case beaconId = "beacon_id"
+        case shitakuItemId = "shitaku_item_id"
+        case shitakuItemName = "shitaku_item_name"
+        case shitakuItemTime = "shitaku_item_time"
+    }
 }
 
 /// ユーザ
 struct User: Codable {
     /// ユーザ名前
-    let name: String
+    let userName: String
     /// 住所
-    let address: String
+    let userAddress: String
+    
+    enum CodingKeys: String, CodingKey {
+        case userName = "user_name"
+        case userAddress = "user_address"
+    }
 }

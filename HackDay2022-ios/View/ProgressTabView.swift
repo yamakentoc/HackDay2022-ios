@@ -11,7 +11,9 @@ import SwiftUI
 struct ProgressTabView: View {
     /// 選択中のタブ
     @State var selectedTab = 1
-    
+
+    @StateObject var progressViewModel = ProgressViewModel()
+
     var body: some View {
         VStack(spacing: 0) {
             TabButtonView
@@ -20,7 +22,7 @@ struct ProgressTabView: View {
         .ignoresSafeArea(.all, edges: .bottom)
         .navigationBarHidden(true)
     }
-    
+
     /// TabのButtonをまとめたView
     private var TabButtonView: some View {
         HStack(spacing: 0) {
@@ -29,8 +31,8 @@ struct ProgressTabView: View {
         }
         .background(Color.backgroundBaseColor)
     }
-    
-    
+
+
     /// TabのButton
     /// - Parameters:
     ///   - target: 自分 or 相手
@@ -56,18 +58,20 @@ struct ProgressTabView: View {
                 selectedTab = tag
             }
     }
-    
+
     /// 上部に表示するTabBar
     private var TopTabBar: some View {
         TabView(selection: $selectedTab) {
-            MyProgressView(viewModel: MyProgressViewModel())
+            MyProgressView()
+                .environmentObject(progressViewModel)
                 .tag(1)
-            PartnerProgressView(viewModel: PartnerProgressViewModel())
+            PartnerProgressView()
+                .environmentObject(progressViewModel)
                 .tag(2)
         }
         .tabViewStyle(.page)
     }
-    
+
 }
 
 struct ProgressTabView_Previews: PreviewProvider {

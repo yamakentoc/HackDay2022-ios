@@ -10,16 +10,15 @@ import SwiftUI
 struct CreateMeetingSchedule: View {
     
     @Environment(\.dismiss) var dismiss
-    // 日時
-    @State var selectionDate = Date()
-    // 場所
-    @State var placeText = ""
+    
+    @StateObject var viewModel: CreateMeetingScheduleViewModel
     
     @State var transportationText = "交通手段を選択"
     // メンバー
     @State var memberText1 = ""
     @State var memberText2 = ""
     @State var memberText3 = ""
+    
     // マイセット
     @State var myset = "したくマイセットを選択"
     
@@ -48,7 +47,7 @@ struct CreateMeetingSchedule: View {
         VStack(alignment: .leading) {
             Label("日時", image: "schedule_calendar")
                 .labelStyle(ScheduleLabelStyle())
-            DatePicker("", selection: $selectionDate)
+            DatePicker("", selection: $viewModel.selectedDate)
                 .labelsHidden()
         }
     }
@@ -58,8 +57,9 @@ struct CreateMeetingSchedule: View {
         VStack(alignment: .leading) {
             Label("場所", image: "schedule_position")
                 .labelStyle(ScheduleLabelStyle())
-            TextField("", text: $placeText)
-                .setScheduleTextFieldStyle(placeholder: "東京駅前", inputText: placeText)
+            TextField("", text: $viewModel.meetingSchedule.appointment_address)
+                .setScheduleTextFieldStyle(placeholder: "東京駅前",
+                                           inputText: viewModel.meetingSchedule.appointment_address)
         }
     }
     
@@ -90,7 +90,7 @@ struct CreateMeetingSchedule: View {
     private var mysetView: some View {
         VStack(alignment: .leading) {
             Label("したくマイセット", image: "schedule_myset")
-            menu(text: $myset, menuList: ["いつもの"])
+            menu(text: $myset, menuList: ["メイクテキトーな日"])
         }
     }
     
@@ -131,10 +131,18 @@ struct CreateMeetingSchedule: View {
     /// 画面下部のボタン
     private var bottomButtonView: some View {
         HStack {
-            bottomButton(text: "キャンセル", foreColor: .textPrimaryLightColor, backColor: .componentTertiaryColor)
+            bottomButton(text: "キャンセル",
+                         foreColor: .textPrimaryLightColor,
+                         backColor: .componentTertiaryColor)
             NavigationLink(destination: ProgressTabView()) {
-                bottomButton(text: "登録", foreColor: .white, backColor: .componentPrimaryColor)
+                bottomButton(text: "登録",
+                             foreColor: .white,
+                             backColor: .componentPrimaryColor)
             }
+            // NavigationLinkに.onTapGestureを使用すると遷移できない問題の回避策
+            .simultaneousGesture(TapGesture().onEnded {
+                viewModel.postMeetingScheduleData()
+            })
         }
         .frame(maxWidth: .infinity)
         .padding(.horizontal)
@@ -155,6 +163,6 @@ struct CreateMeetingSchedule: View {
 
 struct CreateMeetingSchedule_Previews: PreviewProvider {
     static var previews: some View {
-        CreateMeetingSchedule()
+        CreateMeetingSchedule(viewModel: CreateMeetingScheduleViewModel())
     }
 }

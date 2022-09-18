@@ -17,7 +17,7 @@ struct RootView: View {
                     .scaledToFill()
                 VStack {
                     Spacer()
-                    NavigationLink(destination: CreateMeetingSchedule()) {
+                    NavigationLink(destination: CreateMeetingSchedule(viewModel: CreateMeetingScheduleViewModel())) {
                         // 本来はボタンタップで遷移させる
                         Text("")
                             .frame(maxWidth: .infinity)
